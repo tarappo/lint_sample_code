@@ -1,0 +1,1 @@
+# lint_sample_code
