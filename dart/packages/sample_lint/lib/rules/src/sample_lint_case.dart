@@ -1,5 +1,5 @@
 import 'package:analyzer/dart/ast/ast.dart';
-import 'package:analyzer/error/error.dart';
+import 'package:analyzer/error/error.dart' as error;
 import 'package:analyzer/error/listener.dart';
 import 'package:custom_lint_builder/custom_lint_builder.dart';
 
@@ -11,7 +11,7 @@ class SampleLintCase extends DartLintRule {
   static const _code = LintCode(
       name: 'smpl_lint_case',
       problemMessage: 'サンプルLintケース',
-      errorSeverity: ErrorSeverity.WARNING);
+      errorSeverity: error.ErrorSeverity.WARNING);
 
   @override
   List<String> get filesToAnalyze => const ['test/**_test.dart'];
