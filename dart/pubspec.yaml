@@ -39,3 +39,4 @@ dev_dependencies:
   custom_lint:
   sample_lint:
     path: packages/sample_lint
+  analyzer: 6.7.0
