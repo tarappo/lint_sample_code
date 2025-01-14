@@ -23,4 +23,13 @@ jobs:
         shell: /usr/bin/bash {0}
         run: |
           cd dart
-          dart run custom_lint
+          dart run custom_lint >> ./result.txt
+      - name: cat result
+        run: |
+          cd dart
+          cat ./result.txt
+      - name: artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: |
+            ./dart/result.txt
