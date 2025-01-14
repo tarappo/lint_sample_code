@@ -17,6 +17,8 @@ jobs:
         run: |
           cd dart
           flutter pub get
+      - name: Enable Problem Matchers
+        run: echo "::add-matcher::.github/dart-custom_lint-matcher.json"
       - name: run custom lint
         shell: /usr/bin/bash {0}
         run: |
