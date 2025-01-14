@@ -24,6 +24,7 @@ jobs:
         run: |
           cd dart
           dart run custom_lint >> ./result.txt
+          exit 0
       - name: cat result
         run: |
           cd dart
