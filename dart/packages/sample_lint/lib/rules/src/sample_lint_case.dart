@@ -9,7 +9,7 @@ class SampleLintCase extends DartLintRule {
 
   // IDEに表示されるメッセージ
   static const _code = LintCode(
-      name: 'smpl_lint_case',
+      name: 'sample_lint_case',
       problemMessage: 'サンプルLintケース',
       errorSeverity: error.ErrorSeverity.WARNING);
 
