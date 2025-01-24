@@ -17,18 +17,18 @@ jobs:
         run: |
           cd dart
           flutter pub get
-      - name: Enable Problem Matchers
-        run: echo "::add-matcher::.github/dart-custom_lint-matcher.json"
       - name: run custom lint
         shell: /usr/bin/bash {0}
         run: |
           cd dart
           dart run custom_lint >> ./result.txt
           exit 0
+      - name: Enable Problem Matchers
+        run: echo "::add-matcher::.github/dart-custom_lint-matcher.json"
       - name: cat result
         run: |
           cd dart
-          cat ./result.txt
+          cat ./result.txt | sed "s/test\//dart\/test\//"
       - name: artifact
         uses: actions/upload-artifact@v4
         with:

@@ -4,13 +4,13 @@
         "owner": "dart-custom_lint-matcher",
         "pattern": [
           {
-            "regexp": "  (.+):(\\d+):(\\d+)(.+)\\s(WARNING|ERROR)",
+            "regexp": "  (.+):(\\d+):(\\d+)\\s(•.+)(•.+)•\\s(WARNING|ERROR)",
             "file": 1,
             "line": 2,
             "column": 3,
             "message": 4,
-            "severity": 5,
-            "code": 4
+            "code": 5,
+            "severity": 6
           }
         ]
       }
