@@ -34,3 +34,4 @@ jobs:
         with:
           path: |
             ./dart/result.txt
+      - run: echo "::remove-matcher owner=dart-custom_lint-matcher::"
