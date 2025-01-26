@@ -18,6 +18,7 @@ jobs:
           cd dart
           flutter pub get
       - name: run custom lint
+        shell: /usr/bin/bash {0}
         run: |
           cd dart
           dart run custom_lint >> ./result.txt
