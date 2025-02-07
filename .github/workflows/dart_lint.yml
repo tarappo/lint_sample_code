@@ -45,6 +45,6 @@ jobs:
       - if: ${{ !cancelled() }}
         uses: yorifuji/flutter-analyze-commenter@fc7481a3e6a9f01fd4f933d1054405f10fb74757 # v1.3.0
         with:
-          analyze-log: flutter_analyze.log
-          custom-lint-log: custom_lint.log
+          analyze-log: ./dart/flutter_analyze.log
+          custom-lint-log: ./dart/custom_lint.log
           verbose: false
