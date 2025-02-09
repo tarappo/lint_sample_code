@@ -43,7 +43,7 @@ jobs:
           dart run custom_lint --format=json > custom_lint.log
           exit 0
       - if: ${{ !cancelled() }}
-        uses: tarappo/flutter-analyze-commenter@main
+        uses: tarappo/flutter-analyze-commenter@customize_maxIssues
         with:
           analyze-log: ./dart/flutter_analyze.log
           custom-lint-log: ./dart/custom_lint.log
