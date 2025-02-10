@@ -1,0 +1,50 @@
+name: Dart Lint
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@f2c4f6686ca8e8d6e6d0f28410eeef506ed66aff # v2.18.0
+        with:
+          channel: stable
+          flutter-version: 3.x
+      - name: setup 
+        run: |
+          cd dart
+          flutter pub get
+      - name: run custom lint
+        shell: /usr/bin/bash {0}
+        run: |
+          cd dart
+          dart run custom_lint >> ./result.txt
+          exit 0
+      - name: Enable Problem Matchers
+        run: echo "::add-matcher::.github/dart-custom_lint-matcher.json"
+      - name: cat result
+        run: |
+          cd dart
+          cat ./result.txt | sed "s/test\//dart\/test\//"
+      - name: artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: |
+            ./dart/result.txt
+      - run: echo "::remove-matcher owner=dart-custom_lint-matcher::"
+      - name: run custom lint
+        shell: /usr/bin/bash {0}
+        run: |
+          cd dart
+          flutter analyze --no-fatal-infos --write=flutter_analyze.log
+          dart run custom_lint --format=json > custom_lint.log
+          exit 0
+      - if: ${{ !cancelled() }}
+        uses: tarappo/flutter-analyze-commenter@customize_maxIssues
+        with:
+          analyze-log: ./dart/flutter_analyze.log
+          custom-lint-log: ./dart/custom_lint.log
+          verbose: false
