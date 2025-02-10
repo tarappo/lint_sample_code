@@ -48,4 +48,3 @@ jobs:
           analyze-log: ./dart/flutter_analyze.log
           custom-lint-log: ./dart/custom_lint.log
           verbose: false
-          max-issues: 2
