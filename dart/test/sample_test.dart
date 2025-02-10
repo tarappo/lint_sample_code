@@ -2,7 +2,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  group('サンプルグループ', () {
+  group('サンプルグループ2', () {
     test("サンプルテストケース", () async {
     });
     test('日本語てすとけーす', () async {
@@ -11,7 +11,7 @@ void main() {
     });
   });
 
-  group('サンプルグループ2', () {
+  group('ひらがなさんぷるぐるーぷ', () {
     test("サンプルテストケース", () async {
     });
     test('日本語てすとけーす', () async {
